@@ -1,9 +1,11 @@
 object frm_principal: Tfrm_principal
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'CalcDev'
-  ClientHeight = 484
-  ClientWidth = 762
+  ClientHeight = 337
+  ClientWidth = 559
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -231,7 +233,7 @@ object frm_principal: Tfrm_principal
     OnClick = bt_calcularClick
   end
   object rpDocumento: TRLReport
-    Left = 0
+    Left = -4000
     Top = 8
     Width = 794
     Height = 1123

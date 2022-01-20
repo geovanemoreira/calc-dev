@@ -63,25 +63,24 @@ implementation
 procedure Tfrm_principal.bt_calcularClick(Sender: TObject);
 var
   Salario, Desconto, Acrescimo: Double;
-  VlrServico, VlrTotal, VlrHora : Double;
-  TotalHoras : Integer;
+  VlrServico, VlrTotal, VlrHora, TotalHoras: Double;
 begin
   Salario := 3000;
   VlrHora := Salario / 168;
-  TotalHoras := StrToInt(edt_hora_dia.Text) * StrToInt(edt_dias.Text);
+  TotalHoras := StrToFloat(edt_hora_dia.Text) * StrToInt(edt_dias.Text);
   VlrServico := TotalHoras * VlrHora;
   Desconto := (StrToFloat(edt_desconto.Text)/100) * VlrServico;
   Acrescimo := (StrToFloat(edt_acrescimo.Text)/100) * VlrServico;
   VlrTotal := VlrServico + Acrescimo - Desconto;
 
-  lb_total_horas.Caption := IntToStr(TotalHoras);
+  lb_total_horas.Caption := FloatToStr(TotalHoras);
   lb_valor_hora.Caption := FormatFloat('R$ #,0.00', VlrHora);
   lb_valor_servico.Caption := FormatFloat('R$ #,0.00', VlrServico);
   lb_desconto.Caption := FormatFloat('R$ #,0.00', Desconto);
   lb_acrescimo.Caption := FormatFloat('R$ #,0.00', Acrescimo);
   lb_total.Caption := FormatFloat('R$ #,0.00', VlrTotal);
 
-  rpDocumento.Preview;
+  //rpDocumento.Preview;
 
   gb_resultado.SetFocus;
 end;
